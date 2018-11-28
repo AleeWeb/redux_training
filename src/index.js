@@ -3,14 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
 import { createStore } from 'redux';
-
-const store = createStore(reducer); // Pass in a Reducer to the Store
 
 function reducer(){
     return 'State';
 }
+
+const store = createStore(reducer); // Pass a Reducer in createStore to make it a function. 
+
+console.log(store.getState())
+
+const action = {
+    type: 'changeState',
+    payload: {
+        newState: 'New state'
+    }
+};
+
+store.dispatch(action);
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
