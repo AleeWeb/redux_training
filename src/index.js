@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
 
-function reducer(){
+function reducer(state, action){
     return 'State';
 }
 
