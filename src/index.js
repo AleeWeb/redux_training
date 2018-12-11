@@ -6,12 +6,18 @@ import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
 
 function reducer(state, action){
+    //console.log(action);
+
+    if ( action.type === 'changeState') {
+        return action.payload.newState;
+    }
+
     return 'State';
 }
 
 const store = createStore(reducer); // Pass a Reducer in createStore to make it a function. 
 
-console.log(store.getState())
+console.log(store.getState())  // The result prints the word State
 
 const action = {
     type: 'changeState',
