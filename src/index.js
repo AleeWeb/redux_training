@@ -5,6 +5,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
 
+import { combineReducers, createStore } from 'redux';
+
 function reducer(state, action){
     //console.log(action);
 
@@ -27,6 +29,8 @@ const action = {
 };
 
 store.dispatch(action);
+
+console.log(store.getState())  //Prints out "New State"
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
