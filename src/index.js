@@ -3,34 +3,30 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore } from 'redux';
 
-import { combineReducers, createStore } from 'redux';
+import { combineReducers, createStore } from 'redux'
 
-function reducer(state, action){
-    //console.log(action);
-
-    if ( action.type === 'changeState') {
-        return action.payload.newState;
-    }
-
-    return 'State';
+function productsReducer(state = [], action){
+    return state;
 }
 
-const store = createStore(reducer); // Pass a Reducer in createStore to make it a function. 
+function userReducer(state='', action){
+    return state;
+}
 
-console.log(store.getState())  // The result prints the word State
+const allReducers = combineReducers({
+    products: productsReducer,
+    user: userReducer
+});
 
-const action = {
-    type: 'changeState',
-    payload: {
-        newState: 'New state'
-    }
-};
+const store = createStore(allReducers); // Pass a Reducer in createStore to make it a function. 
 
-store.dispatch(action);
+console.log(store.getState())
 
-console.log(store.getState())  //Prints out "New State"
+/* Now Prints out: 
+{products: Array(0), user: ""}
+products: []
+user: "" */
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
