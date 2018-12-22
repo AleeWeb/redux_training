@@ -19,7 +19,11 @@ const allReducers = combineReducers({
     user: userReducer
 });
 
-const store = createStore(allReducers); // Pass a Reducer in createStore to make it a function. 
+const store = createStore(allReducers, {
+    products: [{name: 'iPhone'}],
+    user: 'Michael'
+
+});
 
 console.log(store.getState())
 
